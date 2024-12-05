@@ -1,0 +1,85 @@
+<h1 class="title">APOD (Astronomy Picture of the Day)</h1>
+
+<div class="top-bar">
+
+  <div class="left-section">
+    <p-button label="Atrás" icon="pi pi-arrow-left" size="large" routerLink="/home" class="top-bar-item">
+    </p-button>
+  </div>
+  <div class="right-section calendars">
+    <div class="calendar">
+      <label for="start-date" class="calendar-label">Busca en fechas -></label>
+      <label for="start-date" class="calendar-label">Fecha Inicio</label>
+      <p-calendar [(ngModel)]="startDate" [showIcon]="true" inputId="start-date" [showOnFocus]="false" (onSelect)="onDateChange()" class="top-bar-item">
+      </p-calendar>
+    </div>
+    <div class="calendar">
+      <label for="end-date" class="calendar-label">Fecha Fin</label>
+      <p-calendar [(ngModel)]="endDate" [showIcon]="true" inputId="end-date" [showOnFocus]="false" (onSelect)="onDateChange()" class="top-bar-item">
+      </p-calendar>
+    </div>
+  </div>
+</div>
+
+
+<p-toast />
+   <div *ngIf="isLoading" class="content-planet">
+    <div class="planet">
+      <div class="ring"></div>
+      <div class="cover-ring"></div>
+      <div class="spots">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <p>Cargando.....</p>
+  </div>
+  
+  <div *ngIf="!isLoading">
+    <h2 class="sub-title">Datos de NASA APOD</h2>
+    <div class="card">
+      <p-messages 
+          [(value)]="messages" 
+          [enableService]="false" 
+          [closable]="true" />
+  </div>
+    <p-carousel 
+      [value]="nasaData" 
+      [numVisible]="3" 
+      [numScroll]="1" 
+      [circular]="true" 
+      [autoplayInterval]="3000" 
+      styleClass="custom-carousel"
+      [responsiveOptions]="[
+        { breakpoint: '1024px', numVisible: 3, numScroll: 1 },
+        { breakpoint: '768px', numVisible: 2, numScroll: 1 },
+        { breakpoint: '480px', numVisible: 1, numScroll: 1 }
+      ]">
+      <ng-template let-apod pTemplate="item">
+        <div class="card-container">
+          <p-card [header]="apod.title" [subheader]="apod.explanation" class="fixed-card">
+            <ng-template pTemplate="header">
+              <img [src]="apod.url" alt="Imagen APOD" *ngIf="apod.media_type === 'image'" class="fixed-image" />
+            </ng-template>
+            <p><strong>Fecha:</strong> {{ apod.date }}</p>
+            <p><strong>Copyright:</strong> {{ apod.copyright }}</p>
+          </p-card>
+        </div>
+      </ng-template>
+    </p-carousel>
+    <div *ngIf="errorMessage" class="error">
+     <!-- // {{ errorMessage }} -->
+      <div class="card">
+        <p-messages 
+            [(value)]="messages" 
+            [enableService]="false" 
+            [closable]="false" />
+    </div>
+      </div>
+  </div>
+  

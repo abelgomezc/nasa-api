@@ -1,0 +1,175 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+/* You can add global styles to this file, and also import other style files */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+/*   
+  *, *::before, *::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+  } */
+  
+  body {
+    background: url('https://cdnb.artstation.com/p/assets/images/images/005/137/123/large/mac-rebisz-20170306-blue-sunrise-007-2560.jpg?1488757916') top center no-repeat;
+    background-size: cover;
+    color: rgb(255, 255, 255);
+  }
+
+
+
+  main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 2rem;
+    padding: 50px;
+    font-family: 'Heebo', sans-serif;
+  }
+  .header {
+    width: 100%;
+  }
+  
+  .top-navigation {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .top-navigation ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .top-navigation ul li {
+    display: inline-block;
+    padding: 0 20px;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .logo {
+    width: 64px;
+    height: 64px;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/1200px-NASA_logo.svg.png') top center no-repeat;
+    background-size: cover;
+  }
+  
+  .main-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .main-text h1 {
+   font-size: 20rem;
+   position: relative;
+   display: inline-block;
+  }
+  
+  /* .main-text h1::before {
+    font-size: 1.6rem;
+    font-weight: 300;
+    display: block;
+    content: 'Science is a beautiful gift to humanity.';
+    position: absolute;
+    top: 30px;
+    right: 10px;
+  } */
+  
+  
+  .explore-link, .watch-link, .search-link {
+    display: flex;
+    align-items: center;
+  }
+  
+  .explore-link span {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .watch-link svg {
+    margin-right: 10px; 
+  }
+  
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    html {
+      font-size: 50%;
+    }
+    
+    main {
+      padding: 20px;
+    }
+    
+    
+   .top-navigation {
+      flex-direction: column;
+    }
+    
+    .top-navigation ul {
+      max-width: 100%;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+    
+    .top-navigation ul li {
+      flex: 0 0 auto;
+      padding: 0 15px;
+    }
+    
+    .logo {
+      margin-bottom: 20px
+    }
+    
+    .main-text {
+      margin: 50px auto;
+    }
+    
+    .main-text h1 {
+      font-size: 10rem;
+    }
+    
+    .main-text h1::before {
+      font-size: 1.4rem;
+      top: 5px;
+    }
+    
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  #galaxy_icon {
+    display: block;
+    margin: 0 auto; /* Centrar el ícono */
+    width: 300px; /* Ancho específico para este SVG */
+    height: auto; /* Mantener proporciones */
+  }
+  
+
+  /* Estilo del párrafo */
+  .nasa-api-description {
+    text-align: center; /* Centrado horizontal */
+    margin: 20px auto; /* Espaciado superior e inferior */
+    font-size: 1.5rem; /* Tamaño del texto */
+    color: #ffffff; /* Color del texto */
+    max-width: 600px; /* Ancho máximo del párrafo */
+    line-height: 1.5; /* Espaciado entre líneas */
+    font-family: 'Heebo', sans-serif; /* Fuente consistente con el resto */
+  }
+  

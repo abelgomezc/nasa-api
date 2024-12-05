@@ -1,0 +1,82 @@
+
+
+
+<h1 class="title">EPIC ( Earth Polychromatic Imaging Camera)</h1>
+
+<div class="top-bar">
+
+  <div class="left-section">
+    <p-button label="Atrás" icon="pi pi-arrow-left" size="large" routerLink="/home" class="top-bar-item">
+    </p-button>
+  </div>
+  <div class="right-section calendars">
+    <div class="calendar">
+      <label for="start-date" class="calendar-label">Buscar por fecha :</label>
+      <p-calendar [(ngModel)]="searchDate" [showIcon]="true" inputId="start-date" [showOnFocus]="false" (onSelect)="onDateChange()" class="top-bar-item">
+      </p-calendar>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="content-planet">
+    <div class="planet">
+      <div class="ring"></div>
+      <div class="cover-ring"></div>
+      <div class="spots">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <p>Cargando.....</p>
+  </div>
+
+
+    
+  <div *ngIf="!isLoading">
+    <div class="container">
+      <h3 *ngIf="nasaResponse[0]" class="card-title">{{ nasaResponse[0].caption }}</h3>
+    
+      <div class="carousel-wrapper">
+        <p-carousel 
+          [value]="nasaResponse" 
+          [numVisible]="3" 
+          [numScroll]="1" 
+          class="custom-carousel" 
+          [responsiveOptions]="[
+            { breakpoint: '1024px', numVisible: 3, numScroll: 1 },
+           { breakpoint: '768px', numVisible: 2, numScroll: 1 },
+          { breakpoint: '560px', numVisible: 1, numScroll: 1 }
+          ]">
+          
+          <ng-template pTemplate="item" let-data>
+            <div class="carousel-item">
+              <p-image 
+                [src]="data.image" 
+                width="200" 
+                class="img-square" 
+                alt="NASA Image" 
+                [preview]="true">
+              </p-image>
+              <div class="mt-3">
+                <p>{{ data.date }}</p>
+                <p>Lat: {{ data.centroid_coordinates.lat }}, Lon: {{ data.centroid_coordinates.lon }}</p>
+              </div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
+    
+    
+
+  </div>
+
+
+  
+
+  

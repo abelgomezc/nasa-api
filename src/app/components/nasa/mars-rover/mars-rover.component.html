@@ -1,0 +1,73 @@
+
+<!-- <button routerLink="/home" style="margin-right: 10px;">Atras</button> -->
+
+<h1 class="title">MARS-ROVER (Mars Rover Photos)</h1>
+
+<div class="top-bar">
+
+  <div class="left-section">
+    <p-button label="Atrás" icon="pi pi-arrow-left" size="large" routerLink="/home" class="top-bar-item">
+    </p-button>
+  </div>
+  <div class="right-section calendars">
+    <div class="calendar">
+      <label for="start-date" class="calendar-label">Buscar por Fecha:</label>
+      <p-calendar [(ngModel)]="earth_date" [showIcon]="true" inputId="start-date" [showOnFocus]="false" (onSelect)="onDateChange()" class="top-bar-item">
+      </p-calendar>
+    </div>
+   
+  </div>
+</div>
+<p-toast />
+<div *ngIf="isLoading" class="content-planet">
+    <div class="planet">
+      <div class="ring"></div>
+      <div class="cover-ring"></div>
+      <div class="spots">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <p>Cargando.....</p>
+  </div>
+
+<div *ngIf="!isLoading">
+ <h2 class="sub-title"> Results MARS-ROVER </h2>
+    <p-carousel 
+    *ngIf="photos.length > 0"
+    [value]="photos" 
+    [numVisible]="3" 
+    [numScroll]="1" 
+    [circular]="true" 
+    [autoplayInterval]="3000" 
+    styleClass="custom-carousel"
+    [responsiveOptions]="[
+    { breakpoint: '1024px', numVisible: 3, numScroll: 1 },
+    { breakpoint: '768px', numVisible: 2, numScroll: 1 },
+    { breakpoint: '480px', numVisible: 1, numScroll: 1 }
+    ]"
+    >
+    <ng-template let-photo pTemplate="item">
+      <div class="card-container">
+        <p-card [header]="photo.id" [subheader]="photo.earth_date" class="fixed-card">
+          <ng-template pTemplate="header">
+            <img [src]="photo.img_src" alt="Imagen del rover" class="fixed-image" />
+          </ng-template>
+          <p><strong>Camera:</strong> {{ photo.camera.full_name }}</p>
+          <p><strong>Sol:</strong> {{ photo.sol }}</p>
+        </p-card>
+      </div>
+    </ng-template>
+    </p-carousel>
+    <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+    </div>
+</div>
+
+
+  

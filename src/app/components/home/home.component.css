@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+  }
+
+
+
+.navigation-links li a {
+  text-decoration: none; /* Eliminar subrayado predeterminado */
+  color: #fff;
+  font-size: 18px; 
+  font-weight: bold; 
+  padding: 6px 15px; /* Espaciado dentro del enlace */
+  margin: 5px; /* Margen entre los elementos */
+  border-radius: 5px;
+  display: inline-block; /* Asegura que el enlace se comporte como un bloque */
+  border-bottom: 3px solid #fff; /* Línea abajo permanente */
+  transition: background-color 0.3s, transform 0.3s ease; /* Animaciones suaves */
+}
+
+/* Efecto hover: Cambio de fondo */
+.navigation-links li a:hover {
+  background-color: #007bff; /* Fondo azul cuando pasa el mouse */
+  transform: scale(1.05); /* Aumentar el tamaño del enlace ligeramente */
+  cursor: pointer; /* Cambiar el cursor a mano */
+}
+
+/* Efecto focus para accesibilidad */
+.navigation-links li a:focus {
+  outline: 2px solid #0056b3; /* Borde visible cuando el enlace tiene el foco */
+}
+
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  .navigation-links li a {
+    font-size: 12px; /* Tamaño de la fuente más pequeño */
+    padding: 8px 15px; /* Espaciado reducido */
+    text-align: center; /* Alinear el texto al centro */
+    background-color: #007bff; /* Color de fondo visible */
+    margin: 5px 0; /* Espaciado entre los enlaces */
+  }
+
+  /* En el hover y en el focus, el fondo cambia para que se vea claramente interactivo */
+  .navigation-links li a:hover, .navigation-links li a:focus {
+    background-color: #0056b3; /* Fondo más oscuro en hover/focus */
+    transform: scale(1.05); /* Efecto suave de escala */
+  }
+}

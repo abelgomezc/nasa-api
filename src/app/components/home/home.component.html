@@ -1,0 +1,66 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <header class="header">
+      <nav class="top-navigation">
+        <div class="logo">
+        </div>
+        <ul class="navigation-links">
+          <!-- <li><a href="#">Home</a></li> -->
+          <li><a routerLink="/apod">APOD</a></li>
+          <li><a routerLink="/mars-rover">Mars Rover</a></li>
+          <li><a routerLink="/epic">Epic</a></li>
+     
+   
+ 
+        </ul>
+      </nav>
+    </header>
+    <div class="main-text">
+      <h1> API NASA</h1>
+      <div class="nasa-api-description">
+        Esta aplicación utiliza las APIs de la NASA para ofrecer información y datos únicos: la Imagen Astronómica del Día (APOD), las fotos tomadas por los rovers en Marte (Mars Rover), y las imágenes de la Tierra capturadas desde el espacio por el satélite EPIC (Earth Polychromatic Imaging Camera). Una experiencia interactiva para explorar el cosmos y nuestro planeta.
+      </div>
+      
+      
+      <a class="explore-link" href="https://api.nasa.gov/">
+        <span> Explore API </span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <svg viewBox='-30 -30 60 60' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' id='galaxy_icon' data-name='Galaxy icon'>
+        <style>
+          #galaxy_3d { transform: rotateY(-30deg) rotateX(60deg); color: #ffffff }
+          #galaxy_rotor { animation: orbit 3s linear infinite }
+          .galaxy_core { stroke-width: 3; stroke: currentcolor; fill: none }
+          #galaxy_limb { fill: currentcolor }
+          @keyframes orbit { to { transform: rotate(-1turn) } }
+        </style>
+        <title>Galaxy icon</title>
+        <g id='galaxy_3d'>
+          <g id='galaxy_rotor'>
+            <g transform='translate(.25 -.5)'>
+              <circle class='galaxy_core' r='8.7'/>
+              <circle class='galaxy_core' r='12.7'/>
+              <path id='galaxy_limb' d='M0-14.2c9 0 15.8 7.5 15.8 17 0 12.5-12 18.3-21 18.3-12 0-21.3-12-21.3-25 0-14 12-23 22.7-25.6q-11 4.5-11.7 7.5c-5 4-8.7 10-8.7 19 0 10 9 21 18 21 14 0 20-9 19.5-22z'/>
+              <use xlink:href='#galaxy_limb' transform='scale(-1)'/>
+            </g>
+          </g>	
+        </g>
+      </svg>
+ 
+    </div>
+    
+
+    
+  </main>
+  <router-outlet></router-outlet>
+</body>
+</html>
