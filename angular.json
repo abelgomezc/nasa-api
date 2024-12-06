@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/nasa-api",
-            "baseHref": "/nasa-api/",
+            "baseHref": "/nasa-api-web/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [

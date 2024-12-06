@@ -2,6 +2,66 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: url('https://cdnb.artstation.com/p/assets/images/images/005/137/123/large/mac-rebisz-20170306-blue-sunrise-007-2560.jpg?1488757916') 
+  top center no-repeat;
+  background-size: cover;
+  background-color: #324d72; /* Color de respaldo */
+  color: rgb(255, 255, 255);
+}
+
+::view-transition-new(root) {
+  animation: entra 3s ease 0s 1 alternate both;
+  background: inherit; /* Hereda el fondo del body */
+}
+
+::view-transition-old(root) {
+  animation: salida 3s ease 0s 1 alternate both;
+  background: inherit; /* Hereda el fondo del body */
+}
+
+@keyframes entra {
+  from {
+      transform: scale(0.5);
+      background: radial-gradient(circle, rgba(20, 24, 82, 1) 0%, rgba(0, 0, 0, 0) 100%);
+      box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.3);
+  }
+  to {
+      transform: scale(1);
+      background: none;
+  }
+}
+
+@keyframes salida {
+  from {
+      transform: scale(1);
+      background: none;
+      opacity: 1;
+  }
+  to {
+      transform: scale(0.6);
+      opacity: 0;
+      background: radial-gradient(circle, rgba(20, 24, 82, 1) 0%, rgba(0, 0, 0, 0) 100%);
+      box-shadow: 0 0 50px 10px rgba(255, 255, 255, 0.5);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -12,12 +72,12 @@ html {
     padding: 0;
     margin: 0;
   } */
-  
+/*   
   body {
     background: url('https://cdnb.artstation.com/p/assets/images/images/005/137/123/large/mac-rebisz-20170306-blue-sunrise-007-2560.jpg?1488757916') top center no-repeat;
     background-size: cover;
     color: rgb(255, 255, 255);
-  }
+  } */
 
 
 
